@@ -21,10 +21,16 @@
                         Sign In
                     </a>
                 </li>
-                <li [routerLinkActive]="['active']">
+                <li *ngIf="userExists()" [routerLinkActive]="['active']">
                     <a [routerLink]="['/auth/sign-up']">
                         Sign Up
                     </a>
+                </li>
+                <li *ngIf="userExists()">
+                    <a>{{user.name}}</a>
+                </li>
+                <li *ngIf="userExists()">
+                    <a (click)="logout()">Logout</a>
                 </li>
             </ul>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -23,4 +24,18 @@ class UserController extends Controller
 
         return response()->json(['data'=> 'This email is already taken', 'status'=>false]);
     }
+
+    public function login(Request $request)
+    {
+        header('Access-Control-Allow-Origin: *');
+        $data = $request->all();
+
+        if (Auth::attempt(['email'=>$data['email'],'password'=>$data['password'] ]))
+        {
+            return response()->json(['data'=> Auth::user(), 'status'=>true]);
+        }
+
+        return response()->json(['data'=> 'User doesnt exists', 'status'=>false]);
+    }
+
 }

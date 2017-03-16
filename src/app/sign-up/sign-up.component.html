@@ -3,14 +3,14 @@
 
     <div class="row">
         <p>
-            messages
+            {{message}}
         </p>
         <form >
             <div class="form-content input-field col s12 m12">
-                <input type="text" placeholder="Enter your name.">
-                <input type="email" placeholder="Enter your email.">
-                <input type="password" placeholder="Enter your password.">
-                <button class="btn blue">Sign Up</button>
+                <input type="text" [(ngModel)]="user.name" name="name" placeholder="Enter your name.">
+                <input type="email" [(ngModel)]="user.email" name="email" placeholder="Enter your email.">
+                <input type="password" [(ngModel)]="user.password" name="password" placeholder="Enter your password.">
+                <button class="btn blue" (click)="signUp()">Sign Up</button>
             </div>
         </form>
 

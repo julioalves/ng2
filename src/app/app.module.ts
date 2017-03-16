@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { CardComponent } from './card/card.component';
+import {ApiService} from "./api.service";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CardComponent } from './card/card.component';
     RouterModule.forRoot(rootRouterConfig, { useHash: false })
   ],
   providers: [
+      ApiService
   ],
   bootstrap: [ AppComponent ]
 })
